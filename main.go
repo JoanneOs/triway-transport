@@ -33,7 +33,7 @@ var db *gorm.DB
 
 func main() {
 	// 1. Connect to MySQL
-	dsn := "root:yourpassword@tcp(127.0.0.1:3306)/triway_transport?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:4101984jojoTT!@tcp(127.0.0.1:3306)/triway_transport?charset=utf8mb4&parseTime=True&loc=Local"
 	var err error
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
@@ -57,7 +57,7 @@ func main() {
 	r.HandleFunc("/api/locations/{truckId}", getLocationHistory).Methods("GET")
 	
 	// Serve frontend
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static"))
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static")))
 	
 	// 4. Start server
 	fmt.Println("Server running on http://localhost:8080")
